@@ -13,6 +13,7 @@
   --grisclair: #999999;
   --grislight: #dddddd;
   --grissuperlight: #aaaaaa;
+  --rouge: #ff0000;
 }
 
 /* Style Général */
@@ -38,11 +39,17 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 0px 30px rgba(170, 170, 170, 0.4);
+  margin-bottom: 8px;
 }
 
 #logo img {
   width: 50px;
   margin-left: 20%;
+}
+
+.wheat img {
+  width: 10rem;
 }
 
 nav {
@@ -73,6 +80,7 @@ nav a:hover {
   background: url("../img/ban-accueilxl.jpg") no-repeat;
   background-position: center;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 #ban h1 {
@@ -558,7 +566,7 @@ footer {
   background-position: -640px 0, 0 0, 640px 0, 1280px 0;
 }
 #sl_i2:target ~ #slideshow .dots_commands li:first-child a:before {
-  left: 18px;
+  left: 24px;
 }
 
 /* puis le 3ème */
@@ -572,7 +580,7 @@ footer {
   background-position: -1280px 0, -640px 0, 0 0, 640px 0;
 }
 #sl_i3:target ~ #slideshow .dots_commands li:first-child a:before {
-  left: 36px;
+  left: 49px;
 }
 
 /* et enfin le 4ème */
@@ -586,7 +594,7 @@ footer {
   background-position: -1920px 0, -1280px 0, -640px 0, 0 0;
 }
 #sl_i4:target ~ #slideshow .dots_commands li:first-child a:before {
-  left: 54px;
+  left: 72px;
 }
 
 .dots_commands {
@@ -631,7 +639,6 @@ footer {
   height: 10px;
   background: var(--orange);
   z-index: 20;
-
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) inset;
 }
@@ -662,61 +669,62 @@ footer {
   }
   23% {
     opacity: 0;
-    left: 18px;
+    left: 24px;
   }
   25% {
     opacity: 1;
-    left: 18px;
+    left: 24px;
   }
 
   45% {
     opacity: 1;
-    left: 18px;
+    left: 24px;
   }
   47% {
     opacity: 0;
-    left: 18px;
+    left: 24px;
   }
   48% {
     opacity: 0;
-    left: 36px;
+    left: 49px;
   }
   50% {
     opacity: 1;
-    left: 36px;
+    left: 49px;
   }
 
   70% {
     opacity: 1;
-    left: 36px;
+    left: 49px;
   }
   72% {
     opacity: 0;
-    left: 36px;
+    left: 49px;
   }
   73% {
     opacity: 0;
-    left: 54px;
+    left: 72px;
   }
   75% {
     opacity: 1;
-    left: 54px;
+    left: 72px;
   }
 
   95% {
     opacity: 1;
-    left: 54px;
+    left: 72px;
   }
   97% {
     opacity: 0;
-    left: 54px;
+    left: 72px;
   }
   98% {
     opacity: 0;
     left: 0;
   }
 }
-/* style du titre */
+/* style de la sectioj Food */
+
 #food h1 {
   font-family: "Luxurious Roman", "cursive";
   font-size: 2rem;
@@ -794,4 +802,96 @@ footer {
 .foodStore3 img:hover,
 .foodStore4 img:hover {
   transform: scale(1.1);
+}
+
+/* Style de la page Contact */
+
+#contact h1 {
+  font-family: "Luxurious Roman", "cursive";
+  font-size: 2rem;
+  width: 14%;
+  border: 2px solid var(--marron_fonce);
+  margin: 2em auto;
+  text-align: center;
+  padding: 15px;
+}
+
+#contact p {
+  width: 60%;
+  font-family: "Roboto", "sans-serif";
+  font-size: 1.2rem;
+  line-height: 1.7em;
+  margin: 0 auto;
+}
+
+form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem auto;
+  padding: 2rem;
+  border: 5px solid var(--marron_fonce);
+  border-radius: 10px;
+}
+
+.formTitle {
+  font-family: "Luxurious", "cursive";
+  font-size: 1.8em;
+  color: var(--marron_fonce);
+  margin: 1em auto;
+}
+
+label {
+  font-family: "Roboto", "sans-serif";
+  font-size: 1.3em;
+  color: var(--marron_fonce);
+}
+
+input[type="text"],
+input[type="mail"] {
+  width: 15rem;
+  height: 1.7rem;
+}
+
+input[type="radio"] {
+  width: 15px;
+  height: 15px;
+  margin-left: 0.1em;
+  margin-right: 2em;
+}
+
+.buttonValid {
+  width: 10rem;
+  height: 3rem;
+  margin: 2em auto;
+  background-color: var(--marron_fonce);
+  font-family: "luxurious", "cursive";
+  font-size: 1.5em;
+  color: var(--marron_clair);
+  border-radius: 25px;
+}
+
+.buttonValid:hover {
+  background-color: var(--marron_clair);
+  color: var(--marron_fonce);
+}
+
+textarea {
+  width: 25rem;
+  height: 10rem;
+  font-family: "Roboto", "sans-serif";
+  font-size: 1.3em;
+  color: var(--marron_fonce);
+}
+
+.obligatory {
+  color: var(--rouge);
+  font-size: 1.5em;
+}
+
+form p {
+  font-family: "Roboto", "sans-serif";
+  font-size: 1.3em;
+  color: var(--rouge);
 }

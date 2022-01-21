@@ -16,56 +16,45 @@
       <div id="logo">
         <img src="./assets/img/logo.PNG" alt="Logo de la boulangerie"/>
       </div>
-
       <nav>
         <a href="index.html">Accueil</a>
         <a href="products.html">Nos produits</a>
         <a href="contact.html">Contact</a>
       </nav>
     </header>
-    <div id="ban">
-      <h1>Boulangerie Bakery</h1>
-      <!-- intégration de l'image via css -->
-    </div>
-    <section id="presentation">
-      <!-- Premier article -->
-      <h2>Qui sommes-nous ?</h2>
-      <div class="about">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quia
-            distinctio modi facilis vel. Perspiciatis sequi voluptate excepturi
-            minima libero, adipisci autem minus fugiat aliquid incidunt, tempore
-            modi accusamus quisquam.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid quia
-            distinctio modi facilis vel. Perspiciatis sequi voluptate excepturi
-            minima libero, adipisci autem minus fugiat aliquid incidunt, tempore
-            modi accusamus quisquam.
-          </p>
-      
-          <img
-            src="./assets/img/photo-commerce.jpeg"
-            alt="Photo de la boulangerie" class="shop"
-          />
-      </div>  
-      <!-- Fin Premier article -->
 
-      <!-- Second Article -->   
-      <h2>Offre de la semaine</h2>
-      <div class="offers">
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim
-          dignissimos placeat nisi, officia explicabo culpa nobis voluptates
-          labore provident sit, mollitia nam unde nostrum blanditiis nemo fugiat
-          totam in vel?
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim
-          dignissimos placeat nisi, officia explicabo culpa nobis voluptates
-          labore provident sit, mollitia nam unde nostrum blanditiis nemo fugiat
-          totam in vel?
-        </p>
-        <img src="./assets/img/offre-semaine.JPG" alt="Offre de la semaine" class="products" />
-      </div>
-      <!-- Fin Second Article -->
+    <section id="contact">
+        <h1>Nous Contacter</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor rerum voluptate dicta quas rem illum est. Numquam, qui temporibus fugit, ipsum impedit aspernatur sit corporis molestias consectetur consequatur velit beatae rem maxime harum cum nisi aperiam quae accusamus quod nostrum et magnam fuga odit? Adipisci provident deserunt, itaque dolorem eius deleniti repudiandae corporis, inventore voluptatem reiciendis nihil magni, expedita ratione.</p>
+        <form>
+            <h3 class="formTitle">Votre Civilité</h3>
+            <div class="civ">
+                <label for="civility"> Mr</label>
+                <input type="radio" id="civility" name="civility" Value ="Mr">
+                <label for="civility"> Mme</label>
+                <input type="radio" id="civility" name="civility" Value ="Mme">
+                <label for="civility"> Mlle</label>
+                <input type="radio" id="civility" name="civility" Value ="Mlle">
+            </div>
+
+            <h3 class="formTitle">Vos Informations</h3>
+            <label for="name"><span class="obligatory">*</span> Nom : </label>
+            <input type="text" id="name" name="name" required>
+            <label for="firstName"><span class="obligatory">*</span> Prénom : </label>
+            <input type="text" id="firstName" name="firstName" required>
+            <label for="email"><span class="obligatory">*</span> Email: </label>
+            <input type="mail" id="email" name="email" placeholder="nom.prenom@mail.com" required>
+
+            <h3 class="formTitle">Votre Message</h3>
+            <label for="messsage"></label>
+            <textarea name="message" id="message" placeholder="Merci de nous faire connaître vos avis, idées ou commandes éventuelles"></textarea>
+
+            <input type="submit" value="Envoyer" class="buttonValid">
+
+            <p>Les champs marqués d'un "*" doivent être obligatoirement renseignés</p>
+        </form>
     </section>
+   
     <footer>
         <div class="footContain">
           <div class="location">
