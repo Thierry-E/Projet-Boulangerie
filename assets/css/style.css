@@ -7,6 +7,12 @@
   --marron_fonce: #450c04;
   --blanc: #ffffff;
   --vert: #4cda0b;
+  --orange: #bd9b83;
+  --orangevif: #ffa500;
+  --grisfonce: #555555;
+  --grisclair: #999999;
+  --grislight: #dddddd;
+  --grissuperlight: #aaaaaa;
 }
 
 /* Style Général */
@@ -188,11 +194,11 @@ footer {
 #slideshow {
   position: relative;
   width: 671px;
-  height: 503px;
+  height: 501px;
   padding: 15px;
   margin: 5em auto 2em;
-  border: 1px solid #ddd;
-  background: #fff;
+  border: 1px solid var(--grislight);
+  background: var(--blanc);
   background: linear-gradient(#fff, #fff 20%, #eee 80%, #ddd);
   border-radius: 2px 2px 2px 2px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
@@ -235,7 +241,7 @@ footer {
   content: " ";
   width: 100%;
   height: 1px;
-  background: #999;
+  background: var(--grisclair);
 }
 
 /* 
@@ -244,10 +250,11 @@ footer {
 */
 
 #slideshow .slider {
+  display: flex;
   position: absolute;
   left: 0;
   top: 0;
-  width: 400%;
+  width: 403%;
   height: 468px;
   animation: slider 32s infinite;
 }
@@ -260,7 +267,7 @@ footer {
 /* annulation des marges sur figure */
 #slideshow figure {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
   padding: 0;
   margin: 0;
 }
@@ -289,9 +296,9 @@ footer {
   letter-spacing: 0.05em;
   word-spacing: 0.05em;
   font-family: "Roboto", "sans-serif";
-  background: #fff;
+  background: var(--blanc);
   background: rgba(255, 255, 255, 0.7);
-  color: #555;
+  color: var(--grisfonce);
   animation: figcaptionner 32s infinite;
 }
 
@@ -319,10 +326,10 @@ footer {
 
 #timeline {
   position: absolute;
-  background: #999;
+  background: var(--grisclair);
   bottom: 15px;
   left: 15px;
-  height: 1px;
+  height: 2px;
   background: rgb(214, 98, 13);
   background: rgba(214, 98, 13, 0.8);
   width: 0;
@@ -399,7 +406,7 @@ footer {
   top: 0;
   width: 38%;
   height: 22px;
-  background: #fff;
+  background: var(--blanc);
   background: rgba(255, 255, 255, 0.5);
 }
 .pause:after {
@@ -416,7 +423,7 @@ footer {
   /* les transparentes forment la flèche */
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 20px solid #fff;
+  border-left: 20px solid var(--blanc);
   border-left: 20px solid rgba(255, 255, 255, 0.5);
   /* renseignez 1 pour voir l'icône de suite */
   opacity: 0;
@@ -430,6 +437,285 @@ footer {
   outline: none;
 }
 
+/* stopper les animation */
+.sl_command:target ~ #slideshow .slider,
+.sl_command:target ~ #slideshow figcaption,
+.sl_command:target ~ #slideshow #timeline,
+.sl_command:target ~ #slideshow .dots_commands li:first-child a:after {
+  animation-play-state: paused;
+}
+
+/* redémarrer les animations */
+#sl_play:target ~ #slideshow .slider,
+#sl_play:target ~ #slideshow figcaption,
+#sl_play:target ~ #slideshow #timeline,
+#sl_play:target ~ #slideshow .dots_commands li:first-child a:after {
+  animation-play-state: running;
+}
+
+/* switch entre les boutons */
+.sl_command:target ~ #slideshow .pause {
+  opacity: 0;
+}
+#sl_play:target ~ #slideshow:hover .pause,
+#sl_play:target ~ #slideshow .pause:focus {
+  opacity: 1;
+}
+.sl_command:target ~ #slideshow .play {
+  opacity: 1;
+  right: 25px;
+  cursor: pointer;
+}
+#sl_play:target ~ #slideshow .play {
+  opacity: 0;
+  right: 55px;
+  cursor: default;
+}
+
+/* style des flèches de navigations et des boutons */
+#slideshow .commands {
+  position: absolute;
+  top: 45%;
+  padding: 5px 13px;
+  border-bottom: 0;
+  font-size: 1.3em;
+  color: var(--grissuperlight);
+  text-decoration: none;
+  background-color: #eee;
+  background-image: linear-gradient(#fff, #ddd);
+  text-shadow: 0 0 1px var(--grissuperlight);
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#slideshow .prev {
+  left: -48px;
+}
+#slideshow .next {
+  right: -48px;
+}
+
+#slideshow .commands {
+  display: none;
+}
+#slideshow .commands1 {
+  display: block;
+}
+
+#slideshow .c_slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 400%;
+  height: 468px;
+  /* multiple background */
+  background: url(/assets/carrousel/slide1.jpg) 0 0 no-repeat,
+    url(/assets/carrousel/slide2.jpg) 640px 0 no-repeat,
+    url(/assets/carrousel/slide3.jpg) 1280px 0 no-repeat,
+    url(/assets/carrousel/slide4.jpg) 1920px 0 no-repeat;
+  transition: background 1s;
+}
+
+/* on cache le slider */
+.sl_i:target ~ #slideshow .slider {
+  visibility: hidden;
+}
+/* on planque la 1ère pastille (cf. bonux suivant) */
+.sl_i:target ~ #slideshow .dots_commands li:first-child a:after {
+  display: none;
+}
+/* pour afficher la 2ème pastille (cf. bonux suivant) */
+.sl_i:target ~ #slideshow .dots_commands li:first-child a:before {
+  display: block;
+}
+
+/* lorsque on cible le premier slider */
+/* on cache tous les "précédent" et "suivant" */
+#sl_i1:target ~ #slideshow .commands {
+  display: none;
+}
+/* on affiche seulement deux flèches */
+#sl_i1:target ~ #slideshow .commands1 {
+  display: block;
+}
+/* correspond au décalage des images */
+#sl_i1:target ~ #slideshow .c_slider {
+  background-position: 0 0, 640px 0, 1280px 0, 1920px 0;
+}
+/* on place la pastille tout à gauche */
+#sl_i1:target ~ #slideshow .dots_commands li:first-child a:before {
+  left: 0;
+}
+
+/* même procédé lorsqu'on cible le second slide */
+#sl_i2:target ~ #slideshow .commands {
+  display: none;
+}
+#sl_i2:target ~ #slideshow .commands2 {
+  display: block;
+}
+#sl_i2:target ~ #slideshow .c_slider {
+  background-position: -640px 0, 0 0, 640px 0, 1280px 0;
+}
+#sl_i2:target ~ #slideshow .dots_commands li:first-child a:before {
+  left: 18px;
+}
+
+/* puis le 3ème */
+#sl_i3:target ~ #slideshow .commands {
+  display: none;
+}
+#sl_i3:target ~ #slideshow .commands3 {
+  display: block;
+}
+#sl_i3:target ~ #slideshow .c_slider {
+  background-position: -1280px 0, -640px 0, 0 0, 640px 0;
+}
+#sl_i3:target ~ #slideshow .dots_commands li:first-child a:before {
+  left: 36px;
+}
+
+/* et enfin le 4ème */
+#sl_i4:target ~ #slideshow .commands {
+  display: none;
+}
+#sl_i4:target ~ #slideshow .commands4 {
+  display: block;
+}
+#sl_i4:target ~ #slideshow .c_slider {
+  background-position: -1920px 0, -1280px 0, -640px 0, 0 0;
+}
+#sl_i4:target ~ #slideshow .dots_commands li:first-child a:before {
+  left: 54px;
+}
+
+.dots_commands {
+  padding: 0;
+  margin: 32px 0 0;
+  text-align: center;
+}
+.dots_commands li {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+.dots_commands a {
+  position: relative;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  text-indent: -9999px;
+  background: var(--blanc);
+
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) inset;
+}
+/* quelques styles au focus */
+.dots_commands a:focus {
+  outline: none;
+  background: var(--orangevif);
+}
+.dots_commands li:first-child a {
+  z-index: 25;
+}
+
+/* on style after et before, on utilisera les deux */
+.dots_commands li:first-child a:after,
+.dots_commands li:first-child a:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: " ";
+  width: 10px;
+  height: 10px;
+  background: var(--orange);
+  z-index: 20;
+
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55) inset;
+}
+/* on anime "after" */
+.dots_commands li:first-child a:after {
+  animation: dotser 32s infinite;
+}
+/* on cache "before", on l'utilise uniquement au clic (cf. bonux précédent) */
+.dots_commands li:first-child a:before {
+  display: none;
+}
+
+/* c'est parti pour l'animation ! */
+@keyframes dotser {
+  0%,
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+
+  20% {
+    opacity: 1;
+    left: 0;
+  }
+  22% {
+    opacity: 0;
+    left: 0;
+  }
+  23% {
+    opacity: 0;
+    left: 18px;
+  }
+  25% {
+    opacity: 1;
+    left: 18px;
+  }
+
+  45% {
+    opacity: 1;
+    left: 18px;
+  }
+  47% {
+    opacity: 0;
+    left: 18px;
+  }
+  48% {
+    opacity: 0;
+    left: 36px;
+  }
+  50% {
+    opacity: 1;
+    left: 36px;
+  }
+
+  70% {
+    opacity: 1;
+    left: 36px;
+  }
+  72% {
+    opacity: 0;
+    left: 36px;
+  }
+  73% {
+    opacity: 0;
+    left: 54px;
+  }
+  75% {
+    opacity: 1;
+    left: 54px;
+  }
+
+  95% {
+    opacity: 1;
+    left: 54px;
+  }
+  97% {
+    opacity: 0;
+    left: 54px;
+  }
+  98% {
+    opacity: 0;
+    left: 0;
+  }
+}
 /* style du titre */
 #food h1 {
   font-family: "Luxurious Roman", "cursive";
