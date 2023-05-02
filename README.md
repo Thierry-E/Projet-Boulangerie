@@ -1,3 +1,3 @@
 # Projet-Boulangerie
 
-Ce projet ets un challenge que m'a soumis mon formateur, sur le thème d'un sitre vitrine pour un artisan boulanger.
+Ce projet est un challenge que m'a soumis mon formateur, sur le thème d'un sitre vitrine pour un artisan boulanger.
